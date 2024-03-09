@@ -2,7 +2,7 @@
 import { FC } from "react";
 import { Layout, Typography } from "antd";
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
-import { BLOG_POST } from "../../../../queries/blogPost";
+import { BLOG_POST } from "../../../../graphQl/queries/blogPost";
 import { IBlogPostData } from "../../../../interfaces/blogPostData";
 import { BlogPostRenderer } from "../../../../components/BlogPostRenderer";
 import { Comments } from "../../../../components/Comments";

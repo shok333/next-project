@@ -1,7 +1,6 @@
 import mongoose, { Schema, model } from 'mongoose';
 
 export const blogPostSchema = new Schema({
-  id: { type: String, required: true, unique: true },
   title: { type: String, required: true },
   date: { type: String, required: true },
   author: { type: String, required: true },

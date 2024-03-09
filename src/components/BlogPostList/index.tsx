@@ -1,7 +1,7 @@
 "use client";
 import { Image, List } from 'antd';
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
-import { BLOG_POSTS } from "../../queries/blogPosts"
+import { BLOG_POSTS } from "../../graphQl/queries/blogPosts"
 import { IBlogPostsData } from '../../interfaces/blogPostsData';
 import { IBlogPost } from '../../interfaces/blogPost';
 import Link from 'next/link';

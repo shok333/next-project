@@ -1,26 +1,17 @@
-import { connectMongo } from "../../mongoose/connect";
-import { BlogPostModel } from "../../mongoose/models/blogPost";
+import { blogPost, blogPosts } from "../../mongoose/handlers/BlogPost";
 
-interface IBlogPostArgs {
+export interface IBlogPostQueryArgs {
   url: string;
 }
 
 export const BlogPost = {
   Query: {
-    blogPosts: async () => {
-      await connectMongo();
-
-      return await BlogPostModel.find();
-    },
-    blogPost: async (parent: any, { url }: IBlogPostArgs) => {
-      await connectMongo();
-
-      return await BlogPostModel.findOne({ url });
-    },
+    blogPosts: async () => await blogPosts(),
+    blogPost: async (parent: unknown, args: IBlogPostQueryArgs) => await blogPost(args),
   },
 
   Mutation: {
-    createPost: (parent: any, args: any) => {
+    createPost: (parent: unknown, args: any) => {
       console.log(parent, args)
 
       return {

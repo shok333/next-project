@@ -2,6 +2,7 @@ import { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import YandexProvider from 'next-auth/providers/yandex';
 import GithubProvider from 'next-auth/providers/github';
+import { createUser } from '../mongoose/handlers/User';
 
 
 
@@ -21,8 +22,14 @@ export const authConfig: NextAuthOptions = {
     })
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
-      console.log(111, { user, account, profile })
+    async signIn({ user, account }) {
+      await createUser({
+        name: user.name || '',
+        email: user.email || '',
+        image: user?.image || undefined,
+        provider: account?.provider,
+      });
+
       return true
     },
   }
