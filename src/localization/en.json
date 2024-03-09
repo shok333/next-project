@@ -1,0 +1,10 @@
+{
+  "menu": {
+    "index": "Main page",
+    "contacts": "Contacts",
+    "blog": "Blog"
+  },
+  "comments": {
+    "authHint": "add authMessage text"
+  }
+}
