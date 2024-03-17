@@ -4,16 +4,20 @@ import { AuthList } from "../AuthList"
 import { signOut, useSession } from "next-auth/react"
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { LogonButton } from "../LogonButton";
+import { AuthDependsRenderHelper } from "../AuthDependsRenderHelper";
 
 export const HeaderProfile = () => {
   const { status, data } = useSession();
+  console.log('data', data)
 
-  switch (status) {
-    case 'authenticated':
-      return (
-        <div className="grid gap-1 grid-cols-2">
+  return (
+    <AuthDependsRenderHelper
+      status={status}
+      authenticated={
+        <div className="grid grid-flow-col auto-cols-max gap-2 items-center">
+          <span className="text-white">{data?.user?.name}</span>
           <Avatar
-            src={data.user?.image}
+            src={data?.user?.image}
             icon={
               <UserOutlined />
             }
@@ -25,16 +29,10 @@ export const HeaderProfile = () => {
             }
           />
         </div>
-      )
-
-    case 'loading':
-      return (
-        <Spin />
-      );
-
-    default:
-      return (
+      }
+      unauthenticated={
         <AuthList />
-      );
-  }
+      }
+    />
+  );
 }

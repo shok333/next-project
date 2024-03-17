@@ -5,6 +5,7 @@
     "blog": "Blog"
   },
   "comments": {
-    "authHint": "add authMessage text"
+    "authHint": "add authMessage text",
+    "submit": "Send"
   }
 }

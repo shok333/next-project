@@ -45,6 +45,7 @@ export const Comments: FC<ICommentsProps> = ({ className }) => {
         renderItem={(item) => (
           <List.Item>
             <List.Item.Meta
+              className="grid grid-flow-col auto-cols-max gap-2 items-center"
               avatar={<Avatar src={item.author.image} />}
               title={item.author.name}
               description={item.text}

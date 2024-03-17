@@ -25,7 +25,7 @@ const dataSource = [
 
 export const AuthList: FC = () => {
   return (
-    <div className="grid gap-1 grid-cols-3 w-fit">
+    <div className="grid gap-2 grid-cols-3 w-fit">
       {
         dataSource.map(({ icon, name, onClick }) => (
           <LogonButton
